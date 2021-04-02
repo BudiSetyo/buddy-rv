@@ -501,15 +501,25 @@ module.exports = function (webpackEnv) {
             {
               test: sassRegex,
               exclude: sassModuleRegex,
-              use: getStyleLoaders(
+              use: [
+                ...getStyleLoaders(
+                  {
+                    importLoaders: 3,
+                    sourceMap: isEnvProduction
+                      ? shouldUseSourceMap
+                      : isEnvDevelopment,
+                  },
+                  'sass-loader'
+                ),
                 {
-                  importLoaders: 3,
-                  sourceMap: isEnvProduction
-                    ? shouldUseSourceMap
-                    : isEnvDevelopment,
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: [
+                      path.join(process.cwd(), 'src/assets/scss/main.scss'),
+                    ],
+                  },
                 },
-                'sass-loader',
-              ),
+              ],
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
@@ -520,18 +530,28 @@ module.exports = function (webpackEnv) {
             // using the extension .module.scss or .module.sass
             {
               test: sassModuleRegex,
-              use: getStyleLoaders(
+              use: [
+                ...getStyleLoaders(
+                  {
+                    importLoaders: 3,
+                    sourceMap: isEnvProduction
+                      ? shouldUseSourceMap
+                      : isEnvDevelopment,
+                    modules: {
+                      getLocalIdent: getCSSModuleLocalIdent,
+                    },
+                  },
+                  'sass-loader'
+                ),
                 {
-                  importLoaders: 3,
-                  sourceMap: isEnvProduction
-                    ? shouldUseSourceMap
-                    : isEnvDevelopment,
-                  modules: {
-                    getLocalIdent: getCSSModuleLocalIdent,
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: [
+                      path.join(process.cwd(), 'src/assets/scss/main.scss'),
+                    ],
                   },
                 },
-                'sass-loader',
-              ),
+              ],
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
