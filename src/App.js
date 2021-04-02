@@ -1,13 +1,11 @@
 import React from 'react';
-
-import Button from '@/components/button/index';
+import ResetLayout from '@/layouts/Reset/index';
 
 function App() {
   return (
-    <div className="container">
-      <Button />
-      <h1 className="text--red">Bambang Setyo</h1>
-    </div>
+    <ResetLayout>
+      <h1>title</h1>
+    </ResetLayout>
   );
 }
 

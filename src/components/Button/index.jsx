@@ -1,3 +1,11 @@
 import React from 'react';
 
-export default () => (<h1>jadskjdf</h1>);
+const index = ({ children, onClick }) => (
+  <>
+    <button type="button" onClick={onClick}>
+      {children}
+    </button>
+  </>
+);
+
+export default index;

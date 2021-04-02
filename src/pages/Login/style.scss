@@ -1,0 +1,28 @@
+.title {
+  text-align: center;
+  margin-bottom: 113px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  
+  .forgot {
+    text-align: end;
+  }
+}
+
+.button-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 244px;
+}
+
+footer {
+  text-align: center;
+
+  p {
+    margin-bottom: 0;
+  }
+}
