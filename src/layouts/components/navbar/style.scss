@@ -1,7 +1,15 @@
 .navbar {
+  position: fixed;
   padding: 10px;
 }
 
-.burger {
-  height: 40px;
+.burger-button {
+  border: none;
+  background: transparent;
+  outline: none;
+  
+  .burger {
+    height: 40px;
+  }
 }
+

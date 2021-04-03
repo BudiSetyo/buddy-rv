@@ -12,21 +12,21 @@ import { Link } from 'react-router-dom';
 
 const index = () => (
   <aside className="sidebar background--blue width--100 height--95">
-    <button type="button" className="nav-link width--100 mb-1">
+    <button type="button" className="nav-link nav-link--active width--100 mb-1">
       <div className="notif text--right pt-3">
         <Link to="/notification">
-          <img className="nottif-img" src={Notif} alt="notif-icon" />
+          <img className="notif-img" src={Notif} alt="notif-icon" />
         </Link>
       </div>
       <div className="profile text--white text--left">
         <Link to="/profile">
-          <img className="profile-img" src={Profile} alt="profile-icon" />
+          <img className="profile-img mb-3" src={Profile} alt="profile-icon" />
         </Link>
       </div>
       <h4 className="text--left">Emir Kharisma</h4>
-      <p className="text--left">online</p>
+      <p className="text--left mb-5">online</p>
     </button>
-    <button type="button" className="nav-link nav-link--active width--100 flex flex--align-center mb-2">
+    <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
       <img className="icon mr-3" src={DashboardIcon} alt="dashboard-icon" style={{ margin: '0' }} />
       Dashboard
     </button>
