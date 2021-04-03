@@ -5,15 +5,15 @@ import './style.scss';
 const index = ({
   children, label, validation, className,
 }) => (
-  <div className={`form-item mb-2 ${className}`}>
-    <label className={`label ${className}`} htmlFor="label">
+  <section className={`form-item mb-2 ${className}`}>
+    <label className="label" htmlFor="label">
       {label}
     </label>
     {children}
-    <p className={`validation ${className}`}>
+    <p className="validation">
       {validation}
     </p>
-  </div>
+  </section>
 );
 
 export default index;

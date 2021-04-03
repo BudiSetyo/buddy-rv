@@ -359,6 +359,14 @@ module.exports = function (webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: '@svgr/webpack',
+            },
+          ],
+        },
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
         {

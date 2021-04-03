@@ -3,6 +3,7 @@ import AuthLayout from '@/layouts/Auth/index';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
 import Button from '@/components/button/index';
+import GoogleIcon from '@/assets/images/auth/google-icon.png';
 
 import { Link } from 'react-router-dom';
 
@@ -12,56 +13,89 @@ const index = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const [errUsername, setErrUsername] = useState('');
+  const [errEmail, setErrEmail] = useState('');
+  const [errPassword, setErrPassword] = useState('');
+  const [errConfirmPassword, setErrConfirmPassword] = useState('');
+
+  const handleRegister = () => {
+    if (!username) {
+      setErrUsername('Username cannot be empty');
+    }
+
+    if (!email) {
+      setErrEmail('Email cannot be empty');
+    }
+
+    if (!password) {
+      setErrPassword('Password cannot be empty');
+    }
+
+    if (password !== confirmPassword) {
+      setErrConfirmPassword('Password does not match');
+    }
+
+    if (errUsername || errEmail || errPassword) {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <AuthLayout>
-      <div className="width--100 text--center">
+      <div className="width--100 text--center mb-5">
         <h1>Register</h1>
       </div>
-      <div className="form-input">
-        <FormItem label="Username" validation="username cant be empty">
+      <div className="form-input mb-5">
+        <FormItem label="Username" validation={errUsername}>
           <Input
             type="text"
             className="width--100"
             value={username}
             onChange={(e) => {
+              setErrUsername('');
               setUsername(e.target.value);
             }}
           />
         </FormItem>
-        <FormItem label="Email" validation="Email cant be empty">
+        <FormItem label="Email" validation={errEmail}>
           <Input
             type="text"
             className="width--100"
             value={email}
             onChange={(e) => {
+              setErrEmail('');
               setEmail(e.target.value);
             }}
           />
         </FormItem>
-        <FormItem label="Password" validation="Password cant be empty">
+        <FormItem label="Password" validation={errPassword}>
           <Input
-            type="text"
+            type="password"
             className="width--100"
             value={password}
             onChange={(e) => {
+              setErrPassword('');
               setPassword(e.target.value);
             }}
           />
         </FormItem>
-        <FormItem label="Confirm Password" validation="Confirm Password cant be empty">
+        <FormItem label="Confirm Password" validation={errConfirmPassword}>
           <Input
-            type="text"
+            type="password"
             className="width--100"
             value={confirmPassword}
             onChange={(e) => {
+              setErrConfirmPassword('');
               setConfirmPassword(e.target.value);
             }}
           />
         </FormItem>
       </div>
-      <div className="button-box">
-        <Button className="width--100 mb-3" type="primary">Register</Button>
-        <Button className="width--100" type="secondary">
+      <div className="button-box mb-5">
+        <Button className="width--100 mb-3" type="primary" onClick={handleRegister}>Register</Button>
+        <Button className="width--100 width--100 flex flex--justify-center flex--align-center" type="secondary">
+          <img className="mr-2" src={GoogleIcon} alt="google-icon" style={{ margin: '0' }} />
           Register with Google
         </Button>
       </div>
