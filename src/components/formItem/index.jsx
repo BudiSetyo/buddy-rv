@@ -2,13 +2,15 @@ import React from 'react';
 
 import './style.scss';
 
-const index = ({ children, label, validation }) => (
-  <div className="form-item">
-    <label className="label" htmlFor="label">
+const index = ({
+  children, label, validation, className,
+}) => (
+  <div className={`form-item mb-2 ${className}`}>
+    <label className={`label ${className}`} htmlFor="label">
       {label}
     </label>
     {children}
-    <p className="validation">
+    <p className={`validation ${className}`}>
       {validation}
     </p>
   </div>

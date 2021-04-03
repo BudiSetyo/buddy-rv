@@ -14,10 +14,10 @@ const index = () => {
 
   return (
     <Authlayout>
-      <div className="title width--100">
+      <div className="width--100 text--center">
         <h1>Login</h1>
       </div>
-      <div className="form-input">
+      <div className="form-input flex flex--column flex--justify-space-between">
         <FormItem label="Username or Email" validation="username or email cant be empty">
           <Input
             type="text"
@@ -38,21 +38,21 @@ const index = () => {
             }}
           />
         </FormItem>
-        <div className="forgot-pass flex flex--justify-end">
+        <div className="forgot-pass text--right">
           <p>
             <Link to="/reset" className="text--black">
-              Forgot Password
+              Forgot Password?
             </Link>
           </p>
         </div>
       </div>
-      <div className="button-box">
-        <Button className="width--100" type="primary">Login</Button>
+      <div className="button-box flex flex--column flex--justify-space-between">
+        <Button className="width--100 mb-3" type="primary">Login</Button>
         <Button className="width--100" type="secondary">
           Login with Google
         </Button>
       </div>
-      <footer>
+      <footer className="login-footer text--center">
         <p>
           New User?
           <span>

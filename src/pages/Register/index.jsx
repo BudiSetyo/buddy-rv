@@ -4,14 +4,17 @@ import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
 import Button from '@/components/button/index';
 
+import { Link } from 'react-router-dom';
+
 const index = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   return (
     <AuthLayout>
-      <div className="title width--100">
+      <div className="width--100 text--center">
         <h1>Register</h1>
       </div>
       <div className="form-input">
@@ -45,13 +48,33 @@ const index = () => {
             }}
           />
         </FormItem>
+        <FormItem label="Confirm Password" validation="Confirm Password cant be empty">
+          <Input
+            type="text"
+            className="width--100"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
+          />
+        </FormItem>
       </div>
       <div className="button-box">
-        <Button className="width--100" type="primary">Register</Button>
+        <Button className="width--100 mb-3" type="primary">Register</Button>
         <Button className="width--100" type="secondary">
           Register with Google
         </Button>
       </div>
+      <footer className="text--center">
+        <p>
+          Already have account?
+          <span>
+            <Link to="/login" className="text--blue">
+              Login
+            </Link>
+          </span>
+        </p>
+      </footer>
     </AuthLayout>
   );
 };

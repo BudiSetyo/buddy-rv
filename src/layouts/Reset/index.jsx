@@ -7,7 +7,7 @@ const index = ({ children }) => (
     <section className="flex flex--justify-center flex--align-center container width--100 background--light-blue component--desktop-visible">
       <img src={Logo} alt="logo-icon" style={{ maxWidth: '462px' }} />
     </section>
-    <section className="container width--100 background--white">
+    <section className="container width--100 background--white flex flex--column flex--justify-space-around">
       {children}
     </section>
   </section>
