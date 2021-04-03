@@ -40,7 +40,7 @@ const index = () => {
         </FormItem>
         <div className="forgot-pass text--right">
           <p>
-            <Link to="/reset" className="text--black">
+            <Link to="/reset-password" className="text--black">
               Forgot Password?
             </Link>
           </p>
@@ -55,6 +55,7 @@ const index = () => {
       <footer className="login-footer text--center">
         <p>
           New User?
+          {' '}
           <span>
             <Link to="/register" className="text--blue">
               Register

@@ -19,7 +19,7 @@ const index = () => (
       </FormItem>
     </div>
     <div className="flex flex--column flex--jusctify-center flex--align-center">
-      <Button className="width--80" type="primary">Verivy</Button>
+      <Button className="width--80" type="primary">Create</Button>
     </div>
   </ResetLayout>
 );

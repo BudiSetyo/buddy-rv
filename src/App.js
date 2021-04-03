@@ -9,6 +9,7 @@ import Register from '@/pages/Register/index';
 import ResetPassword from '@/pages/ResetPassword/index';
 import ResetPasswordOtp from '@/pages/ResetPassword-otp/index';
 import ResetPasswordConfirm from '@/pages/ResetPassword-confirm/index';
+import Profile from '@/pages/Profile/index';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       </Route>
       <Route path="/reset-password-confirm">
         <ResetPasswordConfirm />
+      </Route>
+      <Route path="/profile">
+        <Profile />
       </Route>
     </Router>
   );

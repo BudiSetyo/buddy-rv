@@ -68,6 +68,7 @@ const index = () => {
       <footer className="text--center">
         <p>
           Already have account?
+          {' '}
           <span>
             <Link to="/login" className="text--blue">
               Login
