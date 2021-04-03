@@ -67,3 +67,12 @@
     }
   }
 }
+
+.height {
+  @for $i from 0 through 20 {
+    $size: 5 * $i;
+    &--#{$size} {
+      height: $size * 1%;
+    }
+  }
+}

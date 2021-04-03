@@ -1,9 +1,9 @@
 import React from 'react';
 
 const index = ({ children }) => (
-  <section className="auth-layout width--100 background--light-blue" style={{ minHeight: '100vh' }}>
-    <section className="container" style={{ paddingTop: '94px' }}>
-      <section className="width--100" style={{ maxWidth: '480px', margin: '0 auto' }}>
+  <section className="auth-layout flex flex--alignt-stretch width--100 background--light-blue" style={{ height: '100vh' }}>
+    <section className="container height--100">
+      <section className="width--100 height--100 flex flex--column flex--justify-space-around" style={{ maxWidth: '480px', margin: '0 auto' }}>
         {children}
       </section>
     </section>

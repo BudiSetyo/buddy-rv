@@ -1,15 +1,14 @@
 import React from 'react';
-import './style.scss';
+
+import Logo from '@/assets/images/reset/logo-icon.png';
 
 const index = ({ children }) => (
-  <section className="reset-layout width--100 background--light-blue" style={{ minHeight: '100vh' }}>
-    <section className="main-page">
-      <section className="width--50 background--light-blue" style={{ minHeight: '100vh' }}>
-        {children}
-      </section>
-      <section className="width--50 background--white" style={{ minHeight: '100vh' }}>
-        {children}
-      </section>
+  <section className="flex flex--align-stretch background--white" style={{ minHeight: '100vh' }}>
+    <section className="flex flex--justify-center flex--align-center container width--100 background--light-blue component--desktop-visible">
+      <img src={Logo} alt="logo-icon" style={{ maxWidth: '462px' }} />
+    </section>
+    <section className="container width--100 background--white">
+      {children}
     </section>
   </section>
 );

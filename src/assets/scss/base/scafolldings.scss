@@ -12,14 +12,14 @@ body {
 }
 
 .component {
-  &--deskteop-visible {
+  &--desktop-visible {
     @include breakpoint-down(lg) {
-      display: none;
+      display: none !important;
     }
   }
-  &--mobile--visible {
+  &--mobile-visible {
     @include breakpoint-up(lg) {
-      display: none;
+      display: none !important;
     }
   }
 }

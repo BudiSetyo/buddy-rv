@@ -1,12 +1,10 @@
 .title {
   text-align: center;
-  margin-bottom: 113px;
 }
 
 .form-input {
   display: flex;
   flex-direction: column;
-  margin-bottom: 100px;
   
   .forgot {
     text-align: end;
@@ -16,7 +14,15 @@
 .button-box {
   display: flex;
   flex-direction: column;
-  margin-bottom: 244px;
+  justify-content: space-between;
+
+  height: 150px;
+
+  // .google-icon {
+  //   margin-bottom: 0;
+  //   height: 36px;
+  //   width: 36px;
+  // }
 }
 
 footer {
@@ -25,4 +31,7 @@ footer {
   p {
     margin-bottom: 0;
   }
+}
+a {
+  text-decoration: none;
 }
