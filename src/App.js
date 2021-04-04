@@ -13,6 +13,8 @@ import Profile from '@/pages/Profile/index';
 import ActivityUser from '@/pages/ActivityUser/index';
 import MyClassUser from '@/pages/MyClassUser/index';
 import ActivityFasilitator from '@/pages/ActivityFasilitator/index';
+import ClassDetailsUser from '@/pages/ClassDetailsUser/index';
+import HomeUser from '@/pages/HomeUser/index';
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
       <Route path="/reset-password-confirm">
         <ResetPasswordConfirm />
       </Route>
+      <Route path="/home-user">
+        <HomeUser />
+      </Route>
       <Route path="/profile">
         <Profile />
       </Route>
@@ -40,6 +45,9 @@ function App() {
       </Route>
       <Route path="/activity-myclass">
         <MyClassUser />
+      </Route>
+      <Route path="/activity-class-details-user">
+        <ClassDetailsUser />
       </Route>
       <Route path="/activity-fasilitator">
         <ActivityFasilitator />
