@@ -10,6 +10,9 @@ import ResetPassword from '@/pages/ResetPassword/index';
 import ResetPasswordOtp from '@/pages/ResetPassword-otp/index';
 import ResetPasswordConfirm from '@/pages/ResetPassword-confirm/index';
 import Profile from '@/pages/Profile/index';
+import ActivityUser from '@/pages/ActivityUser/index';
+import MyClassUser from '@/pages/MyClassUser/index';
+import ActivityFasilitator from '@/pages/ActivityFasilitator/index';
 
 function App() {
   return (
@@ -31,6 +34,15 @@ function App() {
       </Route>
       <Route path="/profile">
         <Profile />
+      </Route>
+      <Route path="/activity-user">
+        <ActivityUser />
+      </Route>
+      <Route path="/activity-myclass">
+        <MyClassUser />
+      </Route>
+      <Route path="/activity-fasilitator">
+        <ActivityFasilitator />
       </Route>
     </Router>
   );

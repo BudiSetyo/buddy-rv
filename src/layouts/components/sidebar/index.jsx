@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 const index = () => (
   <aside className="sidebar background--blue width--100 height--95">
-    <button type="button" className="nav-link nav-link--active width--100 mb-1">
+    <button type="button" className="nav-link width--100 mb-1">
       <div className="notif text--right pt-3">
         <Link to="/notification">
           <img className="notif-img" src={Notif} alt="notif-icon" />
