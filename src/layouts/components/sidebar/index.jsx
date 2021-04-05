@@ -26,14 +26,18 @@ const index = () => (
       <h4 className="text--left">Emir Kharisma</h4>
       <p className="text--left mb-5">online</p>
     </button>
-    <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
-      <img className="icon mr-3" src={DashboardIcon} alt="dashboard-icon" style={{ margin: '0' }} />
-      Dashboard
-    </button>
-    <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
-      <img className="icon mr-3" src={ActivityIcon} alt="dashboard-icon" style={{ margin: '0' }} />
-      Activity
-    </button>
+    <Link to="/home-user">
+      <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
+        <img className="icon mr-3" src={DashboardIcon} alt="dashboard-icon" style={{ margin: '0' }} />
+        Dashboard
+      </button>
+    </Link>
+    <Link to="/activity-user">
+      <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
+        <img className="icon mr-3" src={ActivityIcon} alt="dashboard-icon" style={{ margin: '0' }} />
+        Activity
+      </button>
+    </Link>
     <button type="button" className="nav-link width--100 flex flex--align-center mb-1">
       <img className="icon mr-3" src={SettingIcon} alt="dashboard-icon" style={{ margin: '0' }} />
       Setting

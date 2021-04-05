@@ -1,9 +1,14 @@
+/* eslint-disable consistent-return */
+/* eslint-disable object-shorthand */
 import React, { useState } from 'react';
 import AuthLayout from '@/layouts/Auth/index';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
 import Button from '@/components/button/index';
 import GoogleIcon from '@/assets/images/auth/google-icon.png';
+
+import Axios from 'axios';
+import swal from 'sweetalert';
 
 import { Link } from 'react-router-dom';
 
@@ -38,7 +43,29 @@ const index = () => {
     if (errUsername || errEmail || errPassword) {
       return false;
     }
-    return true;
+
+    Axios.post('http://localhost:8000/auth/register', {
+      username: username,
+      email: email,
+      password: password,
+    })
+      .then(() => {
+        swal({
+          title: 'Success',
+          text: 'Go to login',
+          icon: 'success',
+          button: 'Next',
+        }).then(() => {
+          window.location = '/login';
+        });
+      })
+      .catch((err) => {
+        swal({
+          title: err.response.data.message,
+          icon: 'error',
+          button: 'Back',
+        });
+      });
   };
 
   return (

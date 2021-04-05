@@ -17,6 +17,10 @@
     background: $white;
     border-radius: 20px;
     color: $black;
+
+    .notif-img, .icon {
+      filter: invert(50%);
+    }
   }
 
   &--active {

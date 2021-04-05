@@ -1,103 +1,36 @@
-import React, { useState } from 'react';
+/* eslint-disable camelcase */
+import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
+
+import Axios from 'axios';
 
 import './style.scss';
 
 const index = () => {
-  const [data] = useState({
-    headerMyClass: [
-      {
-        id: 1,
-        firstHeader: 'Class Name',
-        secondHeader: 'Category',
-        thirdHeader: 'Description',
-        fourthHeader: 'Progress',
-        fifthHeader: 'Status',
-        sixthHeader: 'Score',
-      },
-    ],
-    myClass: [
-      {
-        id: 1,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-        progress: '80',
-        status: 'Ongoing',
-        score: '76',
-      },
-      {
-        id: 2,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-        progress: '80',
-        status: 'Ongoing',
-        score: '76',
-      },
-    ],
-    headerAllClass: [
-      {
-        id: 1,
-        firstHeader: 'Class Name',
-        secondHeader: 'Category',
-        thirdHeader: 'Description',
-        fourthHeader: 'Level',
-        fifthHeader: 'Pricing',
-      },
-    ],
-    allClass: [
-      {
-        id: 1,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description:
-          'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf. Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-      {
-        id: 2,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Javascript from the basic for...',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-      {
-        id: 3,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Javascript from the basic for...',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-      {
-        id: 4,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Javascript from the basic for...',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-      {
-        id: 5,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Javascript from the basic for...',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-      {
-        id: 6,
-        classname: 'Know more javascript',
-        category: 'Software',
-        description: 'Javascript from the basic for...',
-        level: 'Beginner',
-        pricing: 'Free',
-      },
-    ],
-  });
+  const [headerMyClass] = useState([
+    {
+      id: 1,
+      firstHeader: 'Class Name',
+      secondHeader: 'Category',
+      thirdHeader: 'Description',
+      fourthHeader: 'Progress',
+      fifthHeader: 'Status',
+      sixthHeader: 'Score',
+    },
+  ]);
+
+  const [headerClass] = useState([
+    {
+      id: 1,
+      firstHeader: 'Class Name',
+      secondHeader: 'Category',
+      thirdHeader: 'Description',
+      fourthHeader: 'Level',
+      fifthHeader: 'Pricing',
+    },
+  ]);
+
+  const [data, setData] = useState([]);
 
   const textTruncate = (str, length, ending) => {
     if (!length) {
@@ -114,7 +47,22 @@ const index = () => {
     return str;
   };
 
-  const renderTableHeaderMyClass = () => data.headerMyClass.map((subHeader) => {
+  const getData = () => {
+    Axios.get('http://localhost:8000/class/').then((res) => {
+      setData(res.data.result);
+      // eslint-disable-next-line no-console
+      console.log(data);
+    }).catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const renderTableHeaderMyClass = () => headerMyClass.map((subHeader) => {
     const {
       id,
       firstHeader,
@@ -140,36 +88,7 @@ const index = () => {
     );
   });
 
-  const renderTableDataMyClass = () => data.myClass.map((subClass) => {
-    const {
-      id,
-      classname,
-      category,
-      description,
-      progress,
-      status,
-      score,
-    } = subClass;
-    return (
-      <tr className="td-myclass background--white" key={id}>
-        <td className="first-data pl-4">
-          <input type="checkbox" />
-        </td>
-        <td>{classname}</td>
-        <td>{category}</td>
-        <td>{textTruncate(description, 28)}</td>
-        <td>
-          {progress}
-          %
-        </td>
-        <td>{status}</td>
-        <td>{score}</td>
-        <td className="last-data pr-4">:</td>
-      </tr>
-    );
-  });
-
-  const renderTableHeaderClass = () => data.headerAllClass.map((subHeader) => {
+  const renderTableHeaderClass = () => headerClass.map((subHeader) => {
     const {
       id,
       firstHeader,
@@ -195,28 +114,18 @@ const index = () => {
     );
   });
 
-  const renderTableDataClass = () => data.allClass.map((subClass) => {
-    const {
-      id, classname, category, description, level, pricing,
-    } = subClass;
-    return (
-      <tr className="tr-data" key={id}>
-        <td className="first-data pl-2">{classname}</td>
-        <td>{category}</td>
-        <td>{textTruncate(description, 28)}</td>
-        <td>{level}</td>
-        <td>{pricing}</td>
-        <td>
-          <button type="button" className="register-button">Register</button>
-        </td>
-        <td className="last-data pl-2">:</td>
-      </tr>
-    );
-  });
-
   return (
     <DashboardLayout>
       <section>
+        <button
+          type="button"
+          onClick={() => {
+            getData();
+          }}
+        >
+          baik
+
+        </button>
         <h3 className="mb-5">Activity</h3>
         <section>
           <div className="pl-4 mb-3">
@@ -228,9 +137,6 @@ const index = () => {
                 <thead>
                   {renderTableHeaderMyClass()}
                 </thead>
-                <tbody>
-                  {renderTableDataMyClass()}
-                </tbody>
               </table>
               <div className="view-all text--center mt-3 mb-5">
                 <button type="button">
@@ -250,7 +156,26 @@ const index = () => {
                 {renderTableHeaderClass()}
               </thead>
               <tbody>
-                {renderTableDataClass()}
+                {data.map((subClass) => {
+                  const {
+                    id_class, class_name, category_name, description, level_name, pricing,
+                  } = subClass;
+                  return (
+                    <tr className="tr-data" key={id_class}>
+                      <td className="first-data pl-2">{class_name}</td>
+                      <td>{category_name}</td>
+                      <td>{textTruncate(description, 28)}</td>
+                      <td>{level_name}</td>
+                      <td>
+                        {pricing === 0 ? 'Free' : pricing}
+                      </td>
+                      <td>
+                        <button type="button" className="register-button">Register</button>
+                      </td>
+                      <td className="last-data pl-2">:</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

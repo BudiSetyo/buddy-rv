@@ -1,8 +1,12 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import Authlayout from '@/layouts/Auth';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
 import Button from '@/components/button/index';
+
+import swal from 'sweetalert';
+import Axios from 'axios';
 
 import { Link } from 'react-router-dom';
 import GoogleIcon from '@/assets/images/auth/google-icon.png';
@@ -11,6 +15,31 @@ import './style.scss';
 const index = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+
+  const loginHandler = () => {
+    Axios.post('http://localhost:8000/auth/login', {
+      username: user,
+      // eslint-disable-next-line object-shorthand
+      password: password,
+    })
+      .then((res) => {
+        localStorage.setItem('username', res.data.result.username);
+        localStorage.setItem('password', res.data.result.password);
+        localStorage.setItem('email', res.data.result.email);
+        localStorage.setItem('role', res.data.result.role);
+        localStorage.setItem('id', res.data.result.id);
+
+        window.location = '/home-user';
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        swal({
+          title: err.response.data.message,
+          icon: 'error',
+          button: 'Back',
+        });
+      });
+  };
 
   return (
     <Authlayout>
@@ -53,7 +82,15 @@ const index = () => {
       <br />
       <br />
       <div className="button-box flex flex--column flex--justify-space-between">
-        <Button className="width--100 mb-3" type="primary">Login</Button>
+        <Button
+          className="width--100 mb-3"
+          type="primary"
+          onClick={() => {
+            loginHandler();
+          }}
+        >
+          Login
+        </Button>
         <Button className="width--100 flex flex--justify-center flex--align-center" type="secondary">
           <img className="mr-2" src={GoogleIcon} alt="google-icon" style={{ margin: '0' }} />
           Login with Google
