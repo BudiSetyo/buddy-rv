@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
+// import Button from '@/components/button/index';
 
 import Axios from 'axios';
 
@@ -117,22 +118,13 @@ const index = () => {
   return (
     <DashboardLayout>
       <section>
-        <button
-          type="button"
-          onClick={() => {
-            getData();
-          }}
-        >
-          baik
-
-        </button>
         <h3 className="mb-5">Activity</h3>
         <section>
           <div className="pl-4 mb-3">
             <h4>My Class</h4>
           </div>
           <div>
-            <div className="width--100">
+            <div className="myclass-wrapper width--100">
               <table className="table-my-class width--100" style={{ margin: '0 auto' }}>
                 <thead>
                   {renderTableHeaderMyClass()}
@@ -150,7 +142,7 @@ const index = () => {
           <div className="pl-4 pt-4 mb-3">
             <h4>New Class</h4>
           </div>
-          <div className="width--100">
+          <div className="table-wrapper width--100">
             <table className="width--95" style={{ margin: '0 auto' }}>
               <thead>
                 {renderTableHeaderClass()}
@@ -167,7 +159,7 @@ const index = () => {
                       <td>{textTruncate(description, 28)}</td>
                       <td>{level_name}</td>
                       <td>
-                        {pricing === 0 ? 'Free' : pricing}
+                        {pricing === 0 ? 'Free' : `${pricing}$`}
                       </td>
                       <td>
                         <button type="button" className="register-button">Register</button>

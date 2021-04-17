@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable object-shorthand */
 import React, { useState } from 'react';
 import AuthLayout from '@/layouts/Auth/index';
 import Input from '@/components/input/index';
