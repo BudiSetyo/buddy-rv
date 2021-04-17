@@ -14,6 +14,7 @@ process.on('unhandledRejection', (err) => {
 require('../config/env');
 
 const path = require('path');
+const paths = require('../config/paths');
 const chalk = require('react-dev-utils/chalk');
 const fs = require('fs-extra');
 const bfj = require('bfj');
@@ -23,6 +24,7 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
+const configFactory = require('../config/webpack.config');
 
 const { measureFileSizesBeforeBuild } = FileSizeReporter;
 const { printFileSizesAfterBuild } = FileSizeReporter;
@@ -49,14 +51,13 @@ const config = configFactory('production');
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
-const paths = require('../config/paths');
-const configFactory = require('../config/webpack.config');
 
 checkBrowsers(paths.appPath, isInteractive)
   .then(() =>
     // First, read the current file sizes in build directory.
     // This lets us display how much they changed later.
-    measureFileSizesBeforeBuild(paths.appBuild))
+    measureFileSizesBeforeBuild(paths.appBuild),
+  )
   .then((previousFileSizes) => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
@@ -72,12 +73,14 @@ checkBrowsers(paths.appPath, isInteractive)
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
         console.log(
-          `\nSearch for the ${chalk.underline(chalk.yellow('keywords'))
-          } to learn more about each warning.`,
+          `\nSearch for the ${chalk.underline(
+            chalk.yellow('keywords'),
+          )} to learn more about each warning.`,
         );
         console.log(
-          `To ignore, add ${chalk.cyan('// eslint-disable-next-line')
-          } to the line before.\n`,
+          `To ignore, add ${chalk.cyan(
+            '// eslint-disable-next-line',
+          )} to the line before.\n`,
         );
       } else {
         console.log(chalk.green('Compiled successfully.\n'));
@@ -145,8 +148,7 @@ function build(previousFileSizes) {
 
         // Add additional information for postcss errors
         if (Object.prototype.hasOwnProperty.call(err, 'postcssNode')) {
-          errMessage
-            += `\nCompileError: Begins at CSS selector ${err.postcssNode.selector}`;
+          errMessage += `\nCompileError: Begins at CSS selector ${err.postcssNode.selector}`;
         }
 
         messages = formatWebpackMessages({
@@ -167,15 +169,15 @@ function build(previousFileSizes) {
         return reject(new Error(messages.errors.join('\n\n')));
       }
       if (
-        process.env.CI
-        && (typeof process.env.CI !== 'string'
-          || process.env.CI.toLowerCase() !== 'false')
-        && messages.warnings.length
+        process.env.CI &&
+        (typeof process.env.CI !== 'string' ||
+          process.env.CI.toLowerCase() !== 'false') &&
+        messages.warnings.length
       ) {
         console.log(
           chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n'
-            + 'Most CI servers set it automatically.\n',
+            '\nTreating warnings as errors because process.env.CI = true.\n' +
+              'Most CI servers set it automatically.\n',
           ),
         );
         return reject(new Error(messages.warnings.join('\n\n')));
