@@ -2,7 +2,7 @@ import React from 'react';
 import ResetLayout from '@/layouts/Reset/index';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-import Button from '@/components/button/index';
+// import Button from '@/components/button/index';
 
 const index = () => (
   <ResetLayout>
@@ -19,7 +19,7 @@ const index = () => (
       </FormItem>
     </div>
     <div className="flex flex--column flex--jusctify-center flex--align-center">
-      <Button className="width--80" type="primary">Create</Button>
+      {/* <Button className="width--80" type="primary">Create</Button> */}
     </div>
   </ResetLayout>
 );

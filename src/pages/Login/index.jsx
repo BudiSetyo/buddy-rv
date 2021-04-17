@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 import Axios from 'axios';
 
 import { Link } from 'react-router-dom';
-import GoogleIcon from '@/assets/images/auth/google-icon.png';
+// import GoogleIcon from '@/assets/images/auth/google-icon.png';
 import './style.scss';
 
 const index = () => {

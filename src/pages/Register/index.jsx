@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import AuthLayout from '@/layouts/Auth/index';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-import Button from '@/components/button/index';
-import GoogleIcon from '@/assets/images/auth/google-icon.png';
+// import Button from '@/components/button/index';
+// import GoogleIcon from '@/assets/images/auth/google-icon.png';
 
 import Axios from 'axios';
 import swal from 'sweetalert';
@@ -118,11 +118,11 @@ const index = () => {
         </FormItem>
       </div>
       <div className="button-box mb-5">
-        <Button className="width--100 mb-3" type="primary" onClick={handleRegister}>Register</Button>
+        {/* <Button className="width--100 mb-3" type="primary" onClick={handleRegister}>Register</Button>
         <Button className="width--100 width--100 flex flex--justify-center flex--align-center" type="secondary">
           <img className="mr-2" src={GoogleIcon} alt="google-icon" style={{ margin: '0' }} />
           Register with Google
-        </Button>
+        </Button> */}
       </div>
       <footer className="text--center">
         <p>

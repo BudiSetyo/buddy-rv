@@ -1,6 +1,6 @@
 import React from 'react';
 import ResetLayout from '@/layouts/Reset/index';
-import Button from '@/components/button/index';
+// import Button from '@/components/button/index';
 
 import { Link } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ const index = () => (
     </div>
     <div className="flex flex--column flex--jusctify-center flex--align-center">
       <Link to="reset-password-confirm" className="width--100 flex flex--justify-center">
-        <Button className="width--80" type="primary">Verivy</Button>
+        {/* <Button className="width--80" type="primary">Verivy</Button> */}
       </Link>
     </div>
   </ResetLayout>
