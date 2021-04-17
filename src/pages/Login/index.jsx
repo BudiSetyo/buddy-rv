@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Authlayout from '@/layouts/Auth';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-import ButtonItem from '@/components/button/index';
+import ButtonItem from '@/components/btn/index';
 
 import swal from 'sweetalert';
 import Axios from 'axios';
