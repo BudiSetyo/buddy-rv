@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import Authlayout from '@/layouts/Auth';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-// import Button from '@/components/button/index';
+import ButtonItem from '@/components/button/index';
 
 import swal from 'sweetalert';
 import Axios from 'axios';
 
 import { Link } from 'react-router-dom';
-// import GoogleIcon from '@/assets/images/auth/google-icon.png';
+import GoogleIcon from '@/assets/images/auth/google-icon.png';
 import './style.scss';
 
 const index = () => {
@@ -82,7 +82,7 @@ const index = () => {
       <br />
       <br />
       <div className="button-box flex flex--column flex--justify-space-between">
-        {/* <Button
+        <ButtonItem
           className="width--100 mb-3"
           type="primary"
           onClick={() => {
@@ -90,11 +90,11 @@ const index = () => {
           }}
         >
           Login
-        </Button>
-        <Button className="width--100 flex flex--justify-center flex--align-center" type="secondary">
+        </ButtonItem>
+        <ButtonItem className="width--100 flex flex--justify-center flex--align-center" type="secondary">
           <img className="mr-2" src={GoogleIcon} alt="google-icon" style={{ margin: '0' }} />
           Login with Google
-        </Button> */}
+        </ButtonItem>
       </div>
       <br />
       <br />
