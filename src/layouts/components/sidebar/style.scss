@@ -18,8 +18,9 @@
     border-radius: 20px;
     color: $black;
 
-    .notif-img, .icon {
-      filter: invert(50%);
+    .notif-img,
+    .icon {
+      filter: invert(100%);
     }
   }
 
@@ -28,8 +29,6 @@
     background-color: $white;
   }
 }
-
-
 
 .icon {
   width: 30px;
