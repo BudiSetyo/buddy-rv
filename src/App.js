@@ -16,7 +16,7 @@ import HomeUser from '@/pages/HomeUser/index';
 function App() {
   return (
     <Router>
-      <Route path="/">
+      <Route path="/" exact>
         <Login />
       </Route>
       <Route path="/register">
