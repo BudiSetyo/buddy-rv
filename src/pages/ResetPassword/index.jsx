@@ -2,7 +2,7 @@ import React from 'react';
 import ResetLayout from '@/layouts/Reset/index';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-// import Button from '@/components/button/index';
+import Button from '@/components/btn/index';
 
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const index = () => (
         <Input className="width--100" />
       </FormItem>
       <Link to="reset-password-otp" className="width--100 flex flex--justify-center">
-        {/* <Button className="width--80" type="primary">Send</Button> */}
+        <Button className="width--80" type="primary">Send</Button>
       </Link>
     </div>
   </ResetLayout>
