@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Authlayout from '@/layouts/Auth';
 import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
-import ButtonItem from '@/components/btn/index';
+import Button from '@/components/btn/index';
 
 import swal from 'sweetalert';
 import Axios from 'axios';
@@ -82,7 +82,7 @@ const index = () => {
       <br />
       <br />
       <div className="button-box flex flex--column flex--justify-space-between">
-        <ButtonItem
+        <Button
           className="width--100 mb-3"
           type="primary"
           onClick={() => {
@@ -90,11 +90,11 @@ const index = () => {
           }}
         >
           Login
-        </ButtonItem>
-        <ButtonItem className="width--100 flex flex--justify-center flex--align-center" type="secondary">
+        </Button>
+        <Button className="width--100 flex flex--justify-center flex--align-center" type="secondary">
           <img className="mr-2" src={GoogleIcon} alt="google-icon" style={{ margin: '0' }} />
           Login with Google
-        </ButtonItem>
+        </Button>
       </div>
       <br />
       <br />
