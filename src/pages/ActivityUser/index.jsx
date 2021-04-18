@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
 // import Button from '@/components/button/index';
 
-import Axios from 'axios';
+// import Axios from 'axios';
 
 import './style.scss';
+import { getAllCourse } from '@/Redux/course/action';
+import { connect } from 'react-redux';
 
-const index = () => {
+const index = ({ courseReducers, getAllCourse }) => {
   const [headerMyClass] = useState([
     {
       id: 1,
@@ -49,14 +51,15 @@ const index = () => {
   };
 
   const getData = () => {
-    Axios.get('http://localhost:8000/class/').then((res) => {
-      setData(res.data.result);
-      // eslint-disable-next-line no-console
-      console.log(data);
-    }).catch((err) => {
-      // eslint-disable-next-line no-console
-      console.log(err);
-    });
+    // Axios.get('http://localhost:8000/class/').then((res) => {
+    //   setData(res.data.result);
+    //   // eslint-disable-next-line no-console
+    //   console.log(data);
+    // }).catch((err) => {
+    //   // eslint-disable-next-line no-console
+    //   console.log(err);
+    // });
+    getAllCourse()
   };
 
   useEffect(() => {
@@ -150,10 +153,10 @@ const index = () => {
               <tbody>
                 {data.map((subClass) => {
                   const {
-                    id_class, class_name, category_name, description, level_name, pricing,
+                    id, class_name, category_name, description, level_name, pricing,
                   } = subClass;
                   return (
-                    <tr className="tr-data" key={id_class}>
+                    <tr className="tr-data" key={id}>
                       <td className="first-data pl-2">{class_name}</td>
                       <td>{category_name}</td>
                       <td>{textTruncate(description, 28)}</td>
@@ -178,4 +181,23 @@ const index = () => {
   );
 };
 
-export default index;
+const mapStateToProps = (state) => {
+  const { courseReducers } = state
+  return {
+    courseReducers
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllCourse: () => {
+      dispatch(
+        getAllCourse()
+      )
+    }
+  }
+}
+
+const connectedIndex = connect(mapStateToProps, mapDispatchToProps)(index)
+
+export default connectedIndex;
