@@ -4,6 +4,7 @@ import Input from '@/components/input/index';
 import FormItem from '@/components/formItem/index';
 import Button from '@/components/btn/index';
 import GoogleIcon from '@/assets/images/auth/google-icon.png';
+import { useHistory } from 'react-router-dom'
 
 import Axios from 'axios';
 import swal from 'sweetalert';
@@ -11,6 +12,8 @@ import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 
 const index = () => {
+  const history = useHistory();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,7 +57,8 @@ const index = () => {
           icon: 'success',
           button: 'Next',
         }).then(() => {
-          window.location = '/login';
+          // window.location = '/login';
+          history.push('/')
         });
       })
       .catch((err) => {

@@ -8,11 +8,13 @@ import Button from '@/components/btn/index';
 import swal from 'sweetalert';
 import Axios from 'axios';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import GoogleIcon from '@/assets/images/auth/google-icon.png';
 import './style.scss';
 
 const index = () => {
+  const history = useHistory()
+
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,7 +31,8 @@ const index = () => {
         localStorage.setItem('role', res.data.result.role);
         localStorage.setItem('id', res.data.result.id);
 
-        window.location = '/home-user';
+        history.push('/home-user')
+        // window.location = '/home-user'
       })
       .catch((err) => {
         console.log(err.response.data.message);

@@ -6,10 +6,10 @@ import DashboardLayout from '@/layouts/Dashboard/index';
 // import Axios from 'axios';
 
 import './style.scss';
-import { getAllCourse } from '@/Redux/course/action';
+import { getAllCourse, getUserCourse } from '@/Redux/course/action';
 import { connect } from 'react-redux';
 
-const index = ({ courseReducers, getAllCourse }) => {
+const index = ({ courseReducer, getAllCourse, getUserCourse }) => {
   const [headerMyClass] = useState([
     {
       id: 1,
@@ -60,6 +60,8 @@ const index = ({ courseReducers, getAllCourse }) => {
     //   console.log(err);
     // });
     getAllCourse()
+    getUserCourse()
+    console.log(courseReducer)
   };
 
   useEffect(() => {
@@ -132,6 +134,22 @@ const index = ({ courseReducers, getAllCourse }) => {
                 <thead>
                   {renderTableHeaderMyClass()}
                 </thead>
+                <tbody>
+                  {courseReducer.userCourse.map((subCourse) => {
+                    const { id, className, category, description } = subCourse;
+                    return (
+                      <tr className="td-myclass background--white" key={id}>
+                        <td className="pl-4"><input type="checkbox" /></td>
+                        <td>{className}</td>
+                        <td>{category}</td>
+                        <td>{textTruncate(description, 28)}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
               </table>
               <div className="view-all text--center mt-3 mb-5">
                 <button type="button">
@@ -141,7 +159,7 @@ const index = ({ courseReducers, getAllCourse }) => {
             </div>
           </div>
         </section>
-        <section className="new-class background--white width--100">
+        <section className="new-class mb-3 background--white width--100">
           <div className="pl-4 pt-4 mb-3">
             <h4>New Class</h4>
           </div>
@@ -151,16 +169,16 @@ const index = ({ courseReducers, getAllCourse }) => {
                 {renderTableHeaderClass()}
               </thead>
               <tbody>
-                {data.map((subClass) => {
+                {courseReducer.allCourse.map((subCourse) => {
                   const {
-                    id, class_name, category_name, description, level_name, pricing,
-                  } = subClass;
+                    id, className, category, description, level, pricing,
+                  } = subCourse;
                   return (
                     <tr className="tr-data" key={id}>
-                      <td className="first-data pl-2">{class_name}</td>
-                      <td>{category_name}</td>
+                      <td className="first-data pl-2">{className}</td>
+                      <td>{category}</td>
                       <td>{textTruncate(description, 28)}</td>
-                      <td>{level_name}</td>
+                      <td>{level}</td>
                       <td>
                         {pricing === 0 ? 'Free' : `${pricing}$`}
                       </td>
@@ -182,9 +200,9 @@ const index = ({ courseReducers, getAllCourse }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { courseReducers } = state
+  const { courseReducer } = state
   return {
-    courseReducers
+    courseReducer
   }
 }
 
@@ -193,6 +211,11 @@ const mapDispatchToProps = (dispatch) => {
     getAllCourse: () => {
       dispatch(
         getAllCourse()
+      )
+    },
+    getUserCourse: () => {
+      dispatch(
+        getUserCourse()
       )
     }
   }

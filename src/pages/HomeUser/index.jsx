@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
 import calenderIcon from '@/assets/images/dashboard/calender-icon.png';
+import { Link, link } from 'react-router-dom'
 
 import './style.scss'
 
@@ -33,6 +34,24 @@ const index = () => {
     {
       date: 'Su',
       dateNumber: 18,
+    },
+  ])
+
+  const [schedule] = useState([
+    {
+      time: '08:00',
+      className: 'Introduction to Banking Finance',
+      duration: '100 minutes',
+    },
+    {
+      time: '08:00',
+      className: 'Trigonometry',
+      duration: '50 minutes',
+    },
+    {
+      time: '11:00',
+      className: 'History of Europe',
+      duration: '100 minutes',
     },
   ])
 
@@ -69,7 +88,7 @@ const index = () => {
               <h3>Today, October 16</h3>
               <img src={calenderIcon} alt="calender-icon" />
             </div>
-            <div className="calender flex flex--justify-space-between">
+            <div className="calender flex flex--justify-space-between mb-3">
               {cal.map((item, index) => {
                 return (
                   <div key={index}>
@@ -79,17 +98,23 @@ const index = () => {
                 )
               })}
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <section>
+              <div className="text--center">
+                <p>
+                  <Link>
+                    <span className="text--blue">
+                      All schedule
+                    </span>
+                  </Link>
+                  {' '}
+                  <Link>
+                    <span className="text--grey">
+                      For you
+                    </span>
+                  </Link>
+                </p>
+              </div>
+            </section>
           </section>
         </section>
         <section className="width--80 ml-5 mb-3 background--blue component--desktop-visible" />

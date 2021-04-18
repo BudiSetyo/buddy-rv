@@ -1,13 +1,19 @@
 const initialState = () => ({
   allCourse: [],
+  userCourse: [],
 });
 
 export default (state = initialState(), { type, payload }) => {
   switch (type) {
-    case 'GET_ALL_COURSE':
+    case 'SET_ALL_COURSE_DATA':
       return {
         ...state,
-        results: payload,
+        allCourse: payload,
+      };
+    case 'SET_USER_COURSE_DATA':
+      return {
+        ...state,
+        userCourse: payload,
       };
   }
   return state;

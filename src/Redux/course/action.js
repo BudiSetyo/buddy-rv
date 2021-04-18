@@ -1,18 +1,49 @@
 import axios from 'axios';
 
-export const getAllCourse = () => {
-  let data = [];
-  axios.get('http://localhost:8000/course').then((res) => {
-    // console.log(res);
-    // console.log(res.data.info.result);
-    data = res.data.info.result;
-    console.log(data);
-  });
-
-  console.log(data);
-
+const changeAllCourseData = (data) => {
   return {
-    type: 'GET_ALL_COURSE',
+    type: 'SET_ALL_COURSE_DATA',
     payload: data,
+  };
+};
+
+const changeUserCourseData = (data) => {
+  return {
+    type: 'SET_USER_COURSE_DATA',
+    payload: data,
+  };
+};
+
+export const getAllCourse = () => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get('http://localhost:8000/course/')
+        .then((res) => {
+          // console.log({ res });
+          dispatch(changeAllCourseData(res.data.info.result));
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
+};
+
+export const getUserCourse = () => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get('http://localhost:8000/course/36/userCourse/')
+        .then((res) => {
+          console.log({ res });
+          dispatch(changeUserCourseData(res.data.info.result));
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   };
 };
