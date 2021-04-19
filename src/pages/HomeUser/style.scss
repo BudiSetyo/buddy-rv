@@ -34,4 +34,27 @@
 
 .schedule {
   border-radius: 30px;
+
+  .schedule-time,
+  .schedule-course {
+    border-radius: 6px;
+    filter: drop-shadow(0px 7.97654px 31.9062px rgba(0, 0, 0, 0.1));
+  }
+}
+
+.message {
+  border-radius: 20px;
+
+  &-search {
+    border-radius: 17px;
+
+    img {
+      height: 30px;
+    }
+
+    .message-input {
+      background: transparent;
+      border: none;
+    }
+  }
 }

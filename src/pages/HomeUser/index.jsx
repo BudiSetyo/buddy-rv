@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
 import calenderIcon from '@/assets/images/dashboard/calender-icon.png';
-import { Link, link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import plusIcon from '@/assets/images/message/plus-icon.png';
+import searchIcon from '@/assets/images/message/search-icon.png';
+import userIcon from '@/assets/images/message/profile-icon-1.png'
 
 import './style.scss'
 
@@ -55,6 +59,21 @@ const index = () => {
     },
   ])
 
+  const textTruncate = (str, length, ending) => {
+    if (!length) {
+      // eslint-disable-next-line no-param-reassign
+      length = 100;
+    }
+    if (!ending) {
+      // eslint-disable-next-line no-param-reassign
+      ending = '...';
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    }
+    return str;
+  };
+
   return (
     <DashboardLayout>
       <section className="width--100 flex">
@@ -101,23 +120,63 @@ const index = () => {
             <section>
               <div className="text--center">
                 <p>
-                  <Link>
+                  <Link to="/home-user">
                     <span className="text--blue">
                       All schedule
                     </span>
                   </Link>
                   {' '}
-                  <Link>
+                  <Link to="/home-foryou">
                     <span className="text--grey">
                       For you
                     </span>
                   </Link>
                 </p>
               </div>
+              <div className="flex width--100">
+                <div className="schedule-time width--25 m-1 flex flex--justify-center flex--align-center background--white">
+                  <p className="mb-0">08.00 - 09.00</p>
+                </div>
+                <div className="width--75">
+                  <div className="schedule-course m-1 pl-3 pr-3 background--white">
+                    <br />
+                    <p className="mb-0">Introduction to Banking Finance</p>
+                    <br />
+                  </div>
+                  <div className="schedule-course m-1 pl-3 pr-3 background--white">
+                    <br />
+                    <p className="mb-0">Trygonometry</p>
+                    <br />
+                  </div>
+                </div>
+              </div>
             </section>
           </section>
         </section>
-        <section className="width--80 ml-5 mb-3 background--blue component--desktop-visible" />
+        <section className="message width--80 ml-5 mb-3 background--white component--desktop-visible">
+          <div className="message-title pt-4 pl-4 pr-4 mb-2 flex flex--justify-space-between">
+            <h3>Messages</h3>
+            <img src={plusIcon} alt="plus-icon" />
+          </div>
+          <div className="message-search flex flex-align-center ml-4 mr-4 p-2 background--light-blue">
+            <img className="mb-0 mr-2" src={searchIcon} alt="search-icon" />
+            <input className="message-input width--90" type="text" placeholder="search" />
+          </div>
+          <div className="message-content mt-4 ml-4 mr-4 flex flex--justify-space-between flex-align-center">
+            <div className="flex">
+              <img className="mb-0 mr-4" src={userIcon} alt="user-icon" />
+              <div>
+                <h3>Nissa Sabyan</h3>
+                <p className="text--grey">
+                  {
+                    textTruncate('How about number 3?', 28)
+                  }
+                </p>
+              </div>
+            </div>
+            <p className="text--grey">10.15 pm</p>
+          </div>
+        </section>
       </section>
     </DashboardLayout>
   );

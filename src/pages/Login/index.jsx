@@ -21,7 +21,6 @@ const index = () => {
   const loginHandler = () => {
     Axios.post('http://localhost:8000/auth/login', {
       username: user,
-      // eslint-disable-next-line object-shorthand
       password: password,
     })
       .then((res) => {
@@ -32,7 +31,6 @@ const index = () => {
         localStorage.setItem('id', res.data.result.id);
 
         history.push('/home-user')
-        // window.location = '/home-user'
       })
       .catch((err) => {
         console.log(err.response.data.message);
