@@ -134,7 +134,7 @@ const index = () => {
                 </p>
               </div>
               <div className="flex width--100">
-                <div className="schedule-time width--25 m-1 flex flex--justify-center flex--align-center background--white">
+                <div className="schedule-time width--25 m-1 pl-3 pr-3 text--center flex flex--justify-center flex--align-center background--white">
                   <p className="mb-0">08.00 - 09.00</p>
                 </div>
                 <div className="width--75">
@@ -164,17 +164,17 @@ const index = () => {
           </div>
           <div className="message-content mt-4 ml-4 mr-4 flex flex--justify-space-between flex-align-center">
             <div className="flex">
-              <img className="mb-0 mr-4" src={userIcon} alt="user-icon" />
-              <div>
-                <h3>Nissa Sabyan</h3>
-                <p className="text--grey">
+              <img className="user-img mb-0 mr-4" src={userIcon} alt="user-icon" />
+              <div className="flex flex--column flex--justify-center">
+                <h4 className="mb-0">Nissa Sabyan</h4>
+                <p className="text--grey mb-0">
                   {
-                    textTruncate('How about number 3?', 28)
+                    textTruncate('How about number 3?', 20)
                   }
                 </p>
               </div>
             </div>
-            <p className="text--grey">10.15 pm</p>
+            <p className="text--grey mb-0">10.15 pm</p>
           </div>
         </section>
       </section>

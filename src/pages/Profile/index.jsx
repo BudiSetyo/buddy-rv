@@ -13,9 +13,12 @@ import './style.scss';
 
 const index = () => (
   <Dashboardlayout>
-    <section className="profile-container height--100 background--white">
-      <header className="profile-header height--30">
-        <div className="wrapper width--100 height--100 flex flex--column flex--justify-center flex--align-center text--center text--white">
+    <section className="profile-container background--white">
+      <div className="profile-header">
+        <div className="wrapper width--100 pb-3 flex flex--column flex--justify-center flex--align-center text--center text--white">
+          <br />
+          <br />
+          <br />
           <div className="text--center">
             <img className="profile-img" src={ProfileImg} alt="profile-img" />
             <button type="button">
@@ -23,13 +26,15 @@ const index = () => (
             </button>
           </div>
           <h3>Emir Kharisma</h3>
+          <br />
+          <br />
         </div>
-      </header>
+      </div>
       <section className="profile-content width--100">
         <div className="title-profile pt-4 pl-5 mb-5">
           <h3>Profile Setting</h3>
         </div>
-        <div className="width--90 pl-5">
+        <div className="width--90 pl-5 pb-3 mb-3">
           <button className="menu-profile width--100 flex flex--align-center flex--justify-space-between pb-3 mb-2" type="button">
             <div className="flex flex--align-center">
               <img className="menu-img mr-2" src={PhoneIcon} alt="phone-icon" style={{ margin: 0 }} />
