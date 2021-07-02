@@ -10,7 +10,7 @@ const index = () => {
     <DashboardLayout>
       <section className="height--100">
         <h3>Know More Javascript</h3>
-        <section className="background--white height--100">
+        <section className="background--white">
           <header className="height--30 flex flex--justify-center">
             <div className="wrapper flex flex--column flex--justify-end">
               <h2>Know More Javasacript</h2>

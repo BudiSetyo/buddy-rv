@@ -1,0 +1,19 @@
+.schedule-fasilitator {
+  border-radius: 6px;
+  filter: drop-shadow(0px 6.56494px 26.2598px rgba(0, 0, 0, 0.1));
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+  }
+}
+
+.newtask-btn {
+  border: none;
+  border-radius: 30px;
+
+  .newtask-img {
+    filter: invert(100%);
+  }
+}

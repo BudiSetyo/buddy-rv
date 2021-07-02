@@ -1,0 +1,84 @@
+.header-bg {
+  background-size: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.header-content {
+  display: flex;
+  padding: 140px 80px 0 80px;
+  margin-bottom: 112px;
+  background-color: rgba(237, 237, 237, 0.7);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.back-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.register-btn {
+  padding: 10px 20px;
+  margin-bottom: 17px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.tab-wrapper {
+  border-bottom: 0.2px solid $black;
+  margin-bottom: 33px;
+}
+
+.tab-btn {
+  margin-right: 62px;
+  padding-bottom: 17px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background-color: transparent;
+}
+
+.tab-btn:hover {
+  color: $blue;
+  border-bottom: 3px solid $blue;
+}
+
+.tab-btn-active {
+  margin-right: 62px;
+  padding-bottom: 17px;
+  color: $blue;
+  border: none;
+  border-bottom: 3px solid $blue;
+  background-color: transparent;
+}
+
+.col-wrapper {
+  padding: 24px 32px;
+  margin-bottom: 5px;
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.bot-zero {
+  margin-bottom: 0;
+}
+
+.italic-font {
+  font-style: italic;
+  font-weight: 500;
+  color: $grey;
+}
+
+.normal-font {
+  font-weight: 500;
+  color: $black;
+}
+
+.unfinished {
+  padding: 4px 8px;
+  background-color: $light-red;
+  border-radius: 15px;
+}

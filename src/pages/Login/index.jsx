@@ -24,16 +24,21 @@ const index = () => {
       password: password,
     })
       .then((res) => {
-        localStorage.setItem('username', res.data.result.username);
-        localStorage.setItem('password', res.data.result.password);
-        localStorage.setItem('email', res.data.result.email);
-        localStorage.setItem('role', res.data.result.role);
-        localStorage.setItem('id', res.data.result.id);
+        // localStorage.setItem('username', res.data.result.username);
+        // localStorage.setItem('password', res.data.result.password);
+        // localStorage.setItem('email', res.data.result.email);
+        // localStorage.setItem('role', res.data.result.role);
+        // localStorage.setItem('id', res.data.result.id);
+        localStorage.setItem('token', res.data.token);
+        console.log(res.data)
+
+        console.log('testing')
 
         history.push('/home-user')
+        // window.location('/home-user')
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        // console.log(err.response.data);
         swal({
           title: err.response.data.message,
           icon: 'error',

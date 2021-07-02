@@ -1,0 +1,36 @@
+.new-course {
+  border-radius: 20px;
+}
+
+.course-name-input {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.course-time-input {
+  border: none;
+  outline: none;
+}
+
+.new-course-btn {
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.course-description {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.course-label {
+  display: inline-block;
+  width: 6rem;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  display: none;
+  background: none;
+}

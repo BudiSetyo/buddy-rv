@@ -159,9 +159,28 @@ const index = ({ courseReducer, getAllCourse, getUserCourse }) => {
             </div>
           </div>
         </section>
-        <section className="new-class mb-3 background--white width--100">
-          <div className="pl-4 pt-4 mb-3">
+        <section className="new-class mb-3 p-4 background--white width--100">
+          <div className=" mb-3">
             <h4>New Class</h4>
+          </div>
+          <div className="search-class width--100">
+            <input
+              type="text"
+              className="search-input width--80 p-2"
+              placeholder="Quick Search"
+            />
+            <button className="search-button width--20 p-2 text--white background--blue">search</button>
+          </div>
+          <div className="sorting-option">
+            <select name="category" id="category">
+              <option value="">Category</option>
+            </select>
+            <select name="level" id="level">
+              <option value="">Level</option>
+            </select>
+            <select name="pricing" id="pricing">
+              <option value="">Pricing</option>
+            </select>
           </div>
           <div className="table-wrapper width--100">
             <table className="width--95" style={{ margin: '0 auto' }}>
@@ -180,10 +199,10 @@ const index = ({ courseReducer, getAllCourse, getUserCourse }) => {
                       <td>{textTruncate(description, 28)}</td>
                       <td>{level}</td>
                       <td>
-                        {pricing === 0 ? 'Free' : `${pricing}$`}
+                        {pricing === 0 ? 'Free' : `$${pricing}`}
                       </td>
                       <td>
-                        <button type="button" className="register-button">Register</button>
+                        <button type="button" className="register-btn pt-1 pb-1 pl-3 pr-3 background--green text--white">Register</button>
                       </td>
                       <td className="last-data pl-2">:</td>
                     </tr>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DashboardLayout from '@/layouts/Dashboard/index';
 
-// import './style.scss';
+import './style.scss';
 
 const index = () => {
   const [data] = useState({
@@ -100,7 +100,7 @@ const index = () => {
 
   return (
     <DashboardLayout>
-      <section>
+      <section className="width--100">
         <h3 className="mb-5">Activity</h3>
         <section>
           <div className="pl-4 mb-3">
@@ -123,6 +123,63 @@ const index = () => {
               </div>
             </div>
           </div>
+        </section>
+        <section className="mb-3">
+          <h4 className="mb-3 pl-4">Create New Class</h4>
+          <section className="new-course background--white width--100 p-4">
+            <form action="submit">
+              <div className="flex">
+                <div className="width--100">
+                  <label htmlFor="input-course">
+                    <span className="course-label">Class name</span> :
+                    {' '}
+                    <input className="course-name-input ml-2" type="text" />
+                  </label>
+                </div>
+                <div className="width--100">
+                  <label htmlFor="input-course">
+                    <span className="course-label">Pricing</span> :
+                    {' '}
+                    <input className="ml-2 mr-1" type="radio" />
+                    Free
+                    <input className="ml-4 mr-1" type="radio" />
+                    Paid
+                </label>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="width--100">
+                  <label htmlFor="input-course">
+                    <span className="course-label">Categories</span> :
+                    {' '}
+                    <select className="ml-2" name="categories" id="categories">
+                      <option value="software">Software</option>
+                    </select>
+                  </label>
+                </div>
+                <div className="width--100">
+                  <label htmlFor="input-course">
+                    <span className="course-label">Schedule</span> :
+                    {' '}
+                    <select className="ml-2 mr-3" name="day" id="day">
+                      <option value="monday">Monday</option>
+                    </select>
+                    <input className="course-time-input" type="time" />
+                    <input className="course-time-input" type="time" />
+                  </label>
+                </div>
+              </div>
+              <div className="flex flex--column">
+                <label htmlFor="description">
+                  <span className="course-label">Description</span> :
+                </label>
+                <textarea className="course-description p-3 mt-2 background--light-blue" name="description" id="desc" cols="30" rows="10"></textarea>
+              </div>
+              <div className="flex flex--justify-end">
+                <button className="new-course-btn background--green mt-3 p-2 width--20 text--white" type="submit">Create</button>
+              </div>
+            </form>
+          </section>
         </section>
       </section>
     </DashboardLayout>
